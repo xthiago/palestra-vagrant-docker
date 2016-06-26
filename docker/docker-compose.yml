@@ -1,0 +1,28 @@
+mysqlphpsp:
+  image: mysql:5.5
+  container_name: mysqlphpsp
+  ports:
+    - "2017:3306"
+  volumes:
+    - ./config/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: name
+    MYSQL_USER: admin
+    MYSQL_PASSWORD: admin
+phpsp:
+  build: .
+  container_name: phpsp
+  command: "/data/php-apache.sh"
+  volumes:
+    - .:/var/www/phpsp
+    - ./config/apache/phpsp.conf:/etc/apache2/sites-enabled/phpsp.conf
+    - ./config/php/php.ini:/usr/local/etc/php/php.ini
+    - ./config/php:/data
+  ports:
+    - "2016:80"
+  links:
+    - mysqlphpsp
+  environment:
+    APACHE_LOG_DIR: /var/log/apache2
+  working_dir: /var/www/phpsp

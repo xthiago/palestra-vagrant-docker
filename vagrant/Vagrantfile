@@ -1,0 +1,9 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "hashicorp/precise64"
+  config.vm.provision :shell, :path => "provisionamento.sh"
+  config.vm.network :forwarded_port, host: 2015, guest: 80
+  config.vm.synced_folder ".", "/files"
+end
