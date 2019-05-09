@@ -6,7 +6,7 @@ Este repositório contém os arquivos do Vagrant e Docker utilizados na palestra
 
 ## Apresentação
 
-[Apresentação disponível no SlideShare.] (http://pt.slideshare.net/ThiagoRodrigues/construo-e-provisionamento-de-ambientes-de-desenvolvimento-virtualizados)
+[Obtenha os slides da apresentação na seção "Palestras".](https://xthiago.com/)
 
 ## Instruções
 
